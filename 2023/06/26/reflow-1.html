@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .basic_style {
+      width: 100px;
+      height: 100px;
+      border: solid 1px black;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    Demo
+  </div>
+  <script>
+    const container = document.getElementById('container');
+
+    container.style.width = '200px';
+    container.style.height = '200px';
+    container.style.border = 'solid 1px red';
+    container.style.color = 'black';
+
+    container.classList.add('basic_style');
+  </script>
+</body>
+</html>

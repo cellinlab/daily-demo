@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lazy-Load Demo</title>
+  <style>
+    .img {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+    .pic {
+      width: 200px;
+      height: 200px;
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="img">
+      <img data-src="https://blog.cellinlab.com/avatar_h.png" class="pic">
+    </div>
+    <div class="img">
+      <img data-src="https://blog.cellinlab.com/avatar_h.png" class="pic">
+    </div>
+    <div class="img">
+      <img data-src="https://blog.cellinlab.com/avatar_h.png" class="pic">
+    </div>
+    <div class="img">
+      <img data-src="https://blog.cellinlab.com/avatar_h.png" class="pic">
+    </div>
+    <div class="img">
+      <img data-src="https://blog.cellinlab.com/avatar_h.png" class="pic">
+    </div>
+    <div class="img">
+      <img data-src="https://blog.cellinlab.com/avatar_h.png" class="pic">
+    </div>
+    <div class="img">
+      <img data-src="https://blog.cellinlab.com/avatar_h.png" class="pic">
+    </div>
+    <div class="img">
+      <img data-src="https://blog.cellinlab.com/avatar_h.png" class="pic">
+    </div>
+    <div class="img">
+      <img data-src="https://blog.cellinlab.com/avatar_h.png" class="pic">
+    </div>
+    <div class="img">
+      <img data-src="https://blog.cellinlab.com/avatar_h.png" class="pic">
+    </div>
+  </div>
+  <script>
+    const imgs = document.getElementsByTagName('img');
+    const viewHeight = window.innerHeight || document.documentElement.clientHeight;
+    let num = 0;
+    const lazyLoad = () => {
+      for (let i = num; i < imgs.length; i++) {
+        const distance = viewHeight - imgs[i].getBoundingClientRect().top;
+        if (distance >= 0) {
+          imgs[i].src = imgs[i].getAttribute('data-src');
+          num = i + 1;
+        }
+      }
+    };
+
+    lazyLoad();
+
+    window.addEventListener('scroll', lazyLoad, false);
+  </script>
+</body>
+</html>

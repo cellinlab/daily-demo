@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Operations</title>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+    const container = document.getElementById('container');
+    const content = document.createDocumentFragment();
+    for(let i = 0; i < 10000;i++) {
+      const span = document.createElement('span');
+      span.innerHTML = 'Count: ' + i;
+      content.appendChild(span);
+    }
+    container.appendChild(content);
+  </script>
+</body>
+</html>
